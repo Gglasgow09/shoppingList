@@ -1,5 +1,5 @@
 from models import User
-from app import Session
+from server.app import Session
 from flask import request
 
 

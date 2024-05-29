@@ -21,19 +21,21 @@ function App() {
   };
 
   return (
-    <div>
-      <h1>Shopping List</h1>
-      <input value={input} onChange={e => setInput(e.target.value)} />
-      <button onClick={handleAdd}>Add</button>
-      <ul>
-      {items.map((item, index) => (
-        <li key={index}>
-          {item}
-          <input type="checkbox" checked={checkedItems[index] || false} onChange={() => handleCheck(index)} />
-          <button onClick={() => handleDelete(index)}>Delete</button>
-        </li>
-      ))}
-      </ul>
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+      <div>
+        <h1>Shopping List</h1>
+        <input value={input} onChange={e => setInput(e.target.value)} />
+        <button style={{backgroundColor: 'green', marginLeft: '10px'}} onClick={handleAdd}>Add</button>
+        <ul>
+          {items.map((item, index) => (
+            <li key={index}>
+              {item}
+              <input style={{ margin: '0 10px' }} type="checkbox" checked={checkedItems[index] || false} onChange={() => handleCheck(index)} />
+              <button style={{backgroundColor: 'red'}} onClick={handleDelete}>Delete</button>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }

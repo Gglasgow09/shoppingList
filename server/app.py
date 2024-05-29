@@ -4,7 +4,6 @@ from models import Base
 from flask import Flask
 
 
-
 app = Flask(__name__)
 
 engine = create_engine('sqlite:///shopping_list.db')
