@@ -27,10 +27,11 @@ class User(Base):
     def check_password(self, password):
         return bcrypt.checkpw(password.encode('utf-8'), self.password.encode('utf-8'))
     
-class ShoppingList(Base):
+class ShoppingListItem(Base):
     __tablename__ = 'shopping_lists'
     id = Column(Integer, primary_key=True)
     name = Column(String)
+    quantity = Column(Integer)
     user_id = Column(Integer, ForeignKey('users.id'))
     user = relationship('User', back_populates='shopping_lists')
     items = relationship('Item', back_populates='shopping_list')
